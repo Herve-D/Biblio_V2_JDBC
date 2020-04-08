@@ -6,9 +6,11 @@ public class Ui {
 
 	public static Integer saisieId(String label) {
 		String chaine;
-		Integer id;
+		Integer id = null;
 		do {
 			chaine = JOptionPane.showInputDialog(label);
+			if (chaine == null)
+				break;
 
 			try {
 				id = Integer.parseInt(chaine);
@@ -18,7 +20,7 @@ public class Ui {
 				JOptionPane.showMessageDialog(null, "Entrez un nombre valide");
 			}
 
-		} while (true);
+		} while (chaine != null);
 		return id;
 	}
 

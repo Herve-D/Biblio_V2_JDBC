@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import biblio.dao.EmpruntEnCoursDb;
+import biblio.util.BiblioException;
+
 public class Utilisateur extends Personne {
 
 	private Integer idUtilisateur;
@@ -13,6 +16,7 @@ public class Utilisateur extends Personne {
 
 	protected List<EmpruntArchive> empruntArchive = new ArrayList<>();
 	protected List<EmpruntEnCours> empruntEnCours = new ArrayList<>();
+	protected List<EmpruntEnCoursDb> empruntEnCoursDb = new ArrayList<>();
 
 	public Utilisateur() {
 		super();
@@ -66,16 +70,28 @@ public class Utilisateur extends Personne {
 		this.empruntEnCours = empruntEnCours;
 	}
 
+	public List<EmpruntEnCoursDb> getEmpruntEnCoursDb() {
+		return empruntEnCoursDb;
+	}
+
+	public void setEmpruntEnCoursDb(List<EmpruntEnCoursDb> empruntEnCoursDb) {
+		this.empruntEnCoursDb = empruntEnCoursDb;
+	}
+
 	public Integer nbEmpruntsEnCours() {
-		return null;
+		return empruntEnCours.size();
 	}
 
 	public void addEmpruntArchive(EmpruntArchive emprunt) {
 		empruntArchive.add(emprunt);
 	}
 
-	public void addEmpruntEnCours(EmpruntEnCours emprunt) {
+	public void addEmpruntEnCours(EmpruntEnCours emprunt) throws BiblioException {
 		empruntEnCours.add(emprunt);
+	}
+
+	public void addEmpruntEnCoursDb(EmpruntEnCoursDb emprunt) {
+		empruntEnCoursDb.add(emprunt);
 	}
 
 	public Integer existEmpruntEnCours(Integer id) {

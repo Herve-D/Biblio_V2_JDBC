@@ -3,6 +3,8 @@ package biblio.domain;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import biblio.util.EnumStatusExemplaire;
+
 public class EmpruntEnCours {
 
 	private Date dateEmprunt;
@@ -15,11 +17,20 @@ public class EmpruntEnCours {
 	public EmpruntEnCours() {
 	}
 
+	public EmpruntEnCours(Date dateEmprunt) {
+		super();
+		this.dateEmprunt = dateEmprunt;
+	}
+
 	public EmpruntEnCours(Date dateEmprunt, Utilisateur utilisateur, Exemplaire exemplaire) {
 		super();
 		this.dateEmprunt = dateEmprunt;
 		this.utilisateur = utilisateur;
-		this.exemplaire = exemplaire;
+		if (exemplaire == null) {
+			this.setExemplaireNull();
+		} else {
+			this.exemplaire = exemplaire;
+		}
 	}
 
 	public Date getDateEmprunt() {
@@ -44,6 +55,11 @@ public class EmpruntEnCours {
 
 	public void setExemplaire(Exemplaire exemplaire) {
 		this.exemplaire = exemplaire;
+		exemplaire.setStatus(EnumStatusExemplaire.prete);
+	}
+
+	public void setExemplaireNull() {
+		this.exemplaire = null;
 	}
 
 	@Override
