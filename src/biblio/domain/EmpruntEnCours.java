@@ -55,7 +55,7 @@ public class EmpruntEnCours {
 
 	public void setExemplaire(Exemplaire exemplaire) {
 		this.exemplaire = exemplaire;
-		exemplaire.setStatus(EnumStatusExemplaire.prete);
+		exemplaire.setStatus(EnumStatusExemplaire.PRETE);
 	}
 
 	public void setExemplaireNull() {

@@ -1,5 +1,5 @@
 package biblio.util;
 
 public enum EnumStatusExemplaire {
-	prete, disponible, supprime;
+	PRETE, DISPONIBLE, SUPPRIME;
 }

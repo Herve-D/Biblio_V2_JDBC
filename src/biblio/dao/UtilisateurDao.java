@@ -14,7 +14,7 @@ import biblio.util.EnumCategorieEmploye;
 
 public class UtilisateurDao {
 
-	private Connection cnx;
+	private Connection cnx = null;
 
 	public UtilisateurDao() {
 
@@ -28,12 +28,12 @@ public class UtilisateurDao {
 		Utilisateur utilisateur = null;
 
 		PreparedStatement ps = cnx.prepareStatement(
-				"select * from utilisateur u, employe e, adherent a where u.idutilisateur = ? and u.idutilisateur = e.idutilisateur and u.idutilisateur = a.idutilisateur");
+				"select * from utilisateur u, employe e, adherent a where u.IDUTILISATEUR = ? and u.IDUTILISATEUR = e.IDUTILISATEUR and u.IDUTILISATEUR = a.IDUTILISATEUR");
 		ps.setInt(1, id);
 		ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {
-			if (rs.getString("categorieutilisateur").equals("employe")) {
+			if (rs.getString("categorieutilisateur").equals("EMPLOYE")) {
 				utilisateur = new Employe(rs.getString("nom"), rs.getString("prenom"), rs.getDate("datenaissance"),
 						rs.getString("sexe"), rs.getInt("idutilisateur"), rs.getString("pwd"),
 						rs.getString("pseudonyme"), rs.getString("codematricule"),
@@ -54,11 +54,11 @@ public class UtilisateurDao {
 		List<Utilisateur> listeUtilisateur = new ArrayList<>();
 
 		PreparedStatement ps = cnx.prepareStatement(
-				"select * from utilisateur u, employe e, adherent a where u.idutilisateur = e.idutilisateur and u.idutilisateur = a.idutilisateur");
+				"select * from utilisateur u, employe e, adherent a where u.IDUTILISATEUR = e.IDUTILISATEUR and u.IDUTILISATEUR = a.IDUTILISATEUR");
 		ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {
-			if (rs.getString("categorieutilisateur").equals("employe")) {
+			if (rs.getString("categorieutilisateur").equals("EMPLOYE")) {
 				listeUtilisateur.add(new Employe(rs.getString("nom"), rs.getString("prenom"),
 						rs.getDate("datenaissance"), rs.getString("sexe"), rs.getInt("idutilisateur"),
 						rs.getString("pwd"), rs.getString("pseudonyme"), rs.getString("codematricule"),
