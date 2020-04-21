@@ -46,8 +46,8 @@ public class EmpruntEnCoursDb extends EmpruntEnCours {
 
 	@Override
 	public String toString() {
-		return super.toString() + "EmpruntEnCoursDb [idExemplaire=" + idExemplaire + ", idUtilisateur=" + idUtilisateur
-				+ "]";
+		return super.toString() + "\nEmpruntEnCoursDb [ ID Exemplaire : " + idExemplaire + ", ID Utilisateur : "
+				+ idUtilisateur + " ]";
 	}
 
 }

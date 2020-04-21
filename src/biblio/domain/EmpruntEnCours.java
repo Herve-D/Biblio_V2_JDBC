@@ -64,8 +64,8 @@ public class EmpruntEnCours {
 
 	@Override
 	public String toString() {
-		return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", utilisateur=" + utilisateur
-				+ ", exemplaire=" + exemplaire + "]";
+		return "EmpruntEnCours [ Date Emprunt : " + sdf.format(dateEmprunt) + ", Utilisateur : " + utilisateur
+				+ ", Exemplaire : " + exemplaire + " ]";
 	}
 
 }

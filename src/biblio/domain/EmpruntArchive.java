@@ -58,8 +58,9 @@ public class EmpruntArchive {
 
 	@Override
 	public String toString() {
-		return "EmpruntArchive [dateEmprunt=" + sdf.format(dateEmprunt) + ", dateRestitutionEff="
-				+ sdf.format(dateRestitutionEff) + ", utilisateur=" + utilisateur + ", exemplaire=" + exemplaire + "]";
+		return "EmpruntArchive [ Date Emprunt : " + sdf.format(dateEmprunt) + ", Date de Restitution Effective : "
+				+ sdf.format(dateRestitutionEff) + ", Utilisateur : " + utilisateur + ", Exemplaire : " + exemplaire
+				+ " ]\n";
 	}
 
 }

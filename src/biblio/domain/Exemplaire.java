@@ -90,8 +90,8 @@ public class Exemplaire {
 
 	@Override
 	public String toString() {
-		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat=" + sdf.format(dateAchat) + ", status="
-				+ status + ", isbn=" + isbn + "]";
+		return "\nExemplaire [ ID Exemplaire : " + idExemplaire + ", Date d'Achat : " + sdf.format(dateAchat)
+				+ ", Status : " + status + ", ISBN : " + isbn + " ]";
 	}
 
 }

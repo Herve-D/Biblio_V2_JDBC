@@ -45,8 +45,8 @@ public class EmpruntEnCoursDao {
 		ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {
-			emprunts.add(
-					new EmpruntEnCoursDb(rs.getDate("date"), rs.getInt("idexemplaire"), rs.getInt("idutilisateur")));
+			emprunts.add(new EmpruntEnCoursDb(rs.getDate("dateemprunt"), rs.getInt("idexemplaire"),
+					rs.getInt("idutilisateur")));
 		}
 		rs.close();
 		ps.close();

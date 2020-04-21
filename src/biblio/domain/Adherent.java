@@ -2,6 +2,7 @@ package biblio.domain;
 
 import java.util.Date;
 
+import biblio.dao.EmpruntEnCoursDb;
 import biblio.util.BiblioException;
 
 public class Adherent extends Utilisateur {
@@ -43,14 +44,28 @@ public class Adherent extends Utilisateur {
 		Adherent.dureeMaxPrets = dureeMaxPrets;
 	}
 
+//	public Boolean isConditionsPretAcceptees() throws BiblioException {
+//		// test du max
+//		if (empruntEnCours.size() >= nbMaxPrets) {
+//			throw new BiblioException("Nombre maximun d'emprunt atteind (" + nbMaxPrets + ")");
+//		}
+//		for (EmpruntEnCours empruntEnCours : empruntEnCours) {
+//			if (isPretEnRetard(empruntEnCours.getDateEmprunt())) {
+//				throw new BiblioException("Emprunt en retard (" + empruntEnCours.getExemplaire().getIsbn() + " "
+//						+ sdf.format(empruntEnCours.getDateEmprunt()) + ")");
+//			}
+//		}
+//		return true;
+//	}
+
 	public Boolean isConditionsPretAcceptees() throws BiblioException {
 		// test du max
-		if (empruntEnCours.size() >= nbMaxPrets) {
+		if (empruntEnCoursDb.size() >= nbMaxPrets) {
 			throw new BiblioException("Nombre maximun d'emprunt atteind (" + nbMaxPrets + ")");
 		}
-		for (EmpruntEnCours empruntEnCours : empruntEnCours) {
+		for (EmpruntEnCoursDb empruntEnCours : empruntEnCoursDb) {
 			if (isPretEnRetard(empruntEnCours.getDateEmprunt())) {
-				throw new BiblioException("emprunt en retard (" + empruntEnCours.getExemplaire().getIsbn() + " "
+				throw new BiblioException("Emprunt en retard (" + empruntEnCours.getExemplaire().getIsbn() + " "
 						+ sdf.format(empruntEnCours.getDateEmprunt()) + ")");
 			}
 		}
@@ -77,7 +92,7 @@ public class Adherent extends Utilisateur {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Adherent [telephone=" + telephone + "]";
+		return super.toString() + "Adherent [ Telephone : " + telephone + " ]\n";
 	}
 
 }

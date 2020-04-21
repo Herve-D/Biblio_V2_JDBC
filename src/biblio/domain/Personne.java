@@ -56,8 +56,8 @@ public class Personne {
 
 	@Override
 	public String toString() {
-		return "Personne [nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + sdf.format(dateNaissance)
-				+ ", sexe=" + sexe + "]";
+		return "Personne [ Nom : " + nom + ", Prenom : " + prenom + ", Date de Naissance : " + sdf.format(dateNaissance)
+				+ ", Sexe : " + sexe + " ]\n";
 	}
 
 }

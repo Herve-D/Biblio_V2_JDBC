@@ -94,6 +94,10 @@ public class Utilisateur extends Personne {
 		empruntEnCoursDb.add(emprunt);
 	}
 
+	public Boolean isConditionsPretAcceptees() throws BiblioException {
+		return true;
+	}
+
 	public Integer existEmpruntEnCours(Integer id) {
 		for (int i = 0; i < empruntEnCours.size(); i++) {
 			if (empruntEnCours.get(i).getExemplaire().getIdExemplaire() == id) {
@@ -117,8 +121,8 @@ public class Utilisateur extends Personne {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Utilisateur [idUtilisateur=" + idUtilisateur + ", pwd=" + pwd + ", pseudonyme="
-				+ pseudonyme + "]";
+		return super.toString() + "Utilisateur [ ID Utilisateur : " + idUtilisateur + ", Password : " + pwd
+				+ ", Pseudonyme : " + pseudonyme + " ]\n";
 	}
 
 }

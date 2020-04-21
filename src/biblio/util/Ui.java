@@ -29,4 +29,13 @@ public class Ui {
 		return chaine;
 	}
 
+	public static int saisieYN(String label) {
+		int id;
+		do {
+			id = JOptionPane.showConfirmDialog(null, label);
+			break;
+		} while (true);
+		return id;
+	}
+
 }

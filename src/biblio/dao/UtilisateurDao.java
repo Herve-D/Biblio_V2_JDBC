@@ -17,7 +17,6 @@ public class UtilisateurDao {
 	private Connection cnx = null;
 
 	public UtilisateurDao() {
-
 	}
 
 	public UtilisateurDao(Connection cnx) {
@@ -28,7 +27,7 @@ public class UtilisateurDao {
 		Utilisateur utilisateur = null;
 
 		PreparedStatement ps = cnx.prepareStatement(
-				"select * from utilisateur u, employe e, adherent a where u.IDUTILISATEUR = ? and u.IDUTILISATEUR = e.IDUTILISATEUR and u.IDUTILISATEUR = a.IDUTILISATEUR");
+				"select * from utilisateur u, employe e, adherent a where u.IDUTILISATEUR = ? and u.IDUTILISATEUR = e.IDUTILISATEUR(+) and u.IDUTILISATEUR = a.IDUTILISATEUR(+)");
 		ps.setInt(1, id);
 		ResultSet rs = ps.executeQuery();
 
@@ -54,7 +53,7 @@ public class UtilisateurDao {
 		List<Utilisateur> listeUtilisateur = new ArrayList<>();
 
 		PreparedStatement ps = cnx.prepareStatement(
-				"select * from utilisateur u, employe e, adherent a where u.IDUTILISATEUR = e.IDUTILISATEUR and u.IDUTILISATEUR = a.IDUTILISATEUR");
+				"select * from utilisateur u, employe e, adherent a where u.IDUTILISATEUR = e.IDUTILISATEUR(+) and u.IDUTILISATEUR = a.IDUTILISATEUR(+)");
 		ResultSet rs = ps.executeQuery();
 
 		while (rs.next()) {

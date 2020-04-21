@@ -89,8 +89,8 @@ public class Livre {
 
 	@Override
 	public String toString() {
-		return "Livre [isbn=" + isbn + ", titre=" + titre + ", anneeParution=" + anneeParution + ", nbPages=" + nbPages
-				+ "]";
+		return "Livre [ ISBN : " + isbn + ", Titre : " + titre + ", Annee de Parution : " + anneeParution
+				+ ", Nb de Pages : " + nbPages + " ]\n";
 	}
 
 }
