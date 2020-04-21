@@ -24,7 +24,7 @@ public class EmprunterCtl {
 	public static void main(String[] args) {
 
 		ConnectionFactory cf = new ConnectionFactory();
-		Connection cnx = cf.getConnectionSansAutoCommit("src/jdbc.properties");
+		Connection cnx = cf.getConnectionSansAutoCommit("jdbc.properties");
 
 		Utilisateur user = null;
 		Exemplaire ex = null;
