@@ -56,8 +56,10 @@ public class EmprunterCtl {
 						ex = exDao.findByKey(emprunt.getIdExemplaire());
 						emprunt.setExemplaire(ex);
 					}
+
 					JOptionPane.showMessageDialog(null, "Emprunts en cours :\n" + user.getEmpruntEnCoursDb(),
 							"Emprunts", JOptionPane.INFORMATION_MESSAGE);
+
 					try {
 						if (user.isConditionsPretAcceptees()) {
 							empOk = true;
@@ -68,6 +70,7 @@ public class EmprunterCtl {
 						empOk = false;
 						continue;
 					}
+
 				} else {
 					empOk = true;
 				}
